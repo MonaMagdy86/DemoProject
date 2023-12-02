@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="false" name="SwaglabPom">
+    <test name="E2E">
+        <classes>
+           <class name="Tests.LoginTest"/>
+           <class name="Tests.AddToCartTest"/>
+            <class name="Tests.CheckOutTest"/>
+            <class name="Tests.LogOutTest"/>
+        </classes>
+    </test>
+</suite>
