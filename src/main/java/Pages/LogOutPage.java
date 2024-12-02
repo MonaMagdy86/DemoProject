@@ -8,13 +8,21 @@ public class LogOutPage extends PageBase {
     By usernameInput=By.id("user-name");
     By passwordInput=By.id("password");
     By loginButton=By.id("login-button");
-
     By menu=By.className("bm-burger-button");
     By logout=By.id("logout_sidebar_link");
 
     public LogOutPage(WebDriver driver) {
 
         super(driver);
+    }
+    public void loginSteps(String userName,String pass){
+        enterUserName(userName);
+        enterPassword(pass);
+        clickOnLogin();
+    }
+    public void logOutSteps(){
+        clickMenu();
+        clickLogOut();
     }
     public  void enterUserName(String UserName){
 

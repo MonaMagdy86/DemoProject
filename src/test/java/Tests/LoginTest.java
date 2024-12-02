@@ -16,18 +16,14 @@ public class LoginTest extends TestBase {
     @Description(" Verify Login to Website")
     @Severity(SeverityLevel.BLOCKER)
     public void ValidLogin() {
-        loginPage.enterUserName("standard_user");
-        loginPage.enterPassword("secret_sauce");
-        loginPage.clickOnLogin();
+        loginPage.loginSteps("standard_user","secret_sauce");
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/inventory.html");
 
     }
 
    @Test(priority = 2)
     public void InValidLogin() throws IOException{
-        loginPage.enterUserName("standard");
-        loginPage.enterPassword("secret");
-        loginPage.clickOnLogin();
+       loginPage.loginSteps("standard","secret");
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/");
 
     }

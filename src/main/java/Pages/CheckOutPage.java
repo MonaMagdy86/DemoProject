@@ -5,12 +5,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class CheckOutPage extends PageBase {
-    By CartLink=By.className("shopping_cart_link");
-    By checkoutbtn=By.className("btn_action");
+    By cartLink=By.className("shopping_cart_link");
+    By checkOutBtn=By.className("btn_action");
     By firstName=By.id("first-name");
     By lastName=By.id("last-name");
     By postalCode =By.id("postal-code");
-    By conbtn=By.className("btn_primary");
+    By contBtn=By.className("btn_primary");
+    By total=By.className("summary_total_label");
     By finish=By.linkText("FINISH");
     By completeText=By.className("complete-header");
 
@@ -20,11 +21,19 @@ public class CheckOutPage extends PageBase {
     }
     public void clickOnCart(){
 
-      driver.findElement(CartLink).click();
+      driver.findElement(cartLink).click();
+    }
+
+    public void checkOutSteps(String firstName, String lastName,String postalCode){
+        clickOnCheckOutBtn();
+        enterFirstName(firstName);
+        enterLastName(lastName);
+        enterPostalCode(postalCode);
+        clickOnConBtn();
     }
     public void clickOnCheckOutBtn(){
 
-      driver.findElement(checkoutbtn).click();
+      driver.findElement(checkOutBtn).click();
     }
     public void enterFirstName(String FirstName){
 
@@ -40,7 +49,10 @@ public class CheckOutPage extends PageBase {
     }
     public void clickOnConBtn(){
 
-      driver.findElement(conbtn).click();
+      driver.findElement(contBtn).click();
+    }
+    public String getTotal(){
+        return driver.findElement(total).getText();
     }
     public void clickOnFinish(){
       driver.findElement(finish).click();

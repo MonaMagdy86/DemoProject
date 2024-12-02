@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite parallel="false" name="SwaglabPom">
+<suite parallel="false" name="SauceDemo">
     <test name="E2E">
         <classes>
            <class name="Tests.LoginTest"/>

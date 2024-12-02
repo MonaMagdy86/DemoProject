@@ -8,25 +8,27 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class AddToCartTest extends TestBase {
+
     @Test(priority = 1,description = "Verify Add to cart ")
     @Description("Verify adding item to cart")
     @Severity(SeverityLevel.CRITICAL)
-    public void AddToCart(){
+    public void AddItemsToCart(){
         loginPage.enterUserName("standard_user");
         loginPage.enterPassword("secret_sauce");
         loginPage.clickOnLogin();
         AddToCartPage add=new AddToCartPage(driver);
+        add.clickOnItem1();
         add.addToCart();
-        String txt=add.getItemName();
-        System.out.println(txt);
-        Assert.assertEquals(txt,"Sauce Labs Backpack");
-         add.removeBtn();
-         String text=add.getItemName();
-        System.out.println(text);
-
-
-
+        add.clickOnBackButton();
+        add.clickOnItem2();
+        add.addToCart();
+       String numOfItems = add.getItemsNumber();
+        Assert.assertEquals(numOfItems,"2");
+        add.clickOncartIcon();
+        String firstItem=add.getItem1Name();
+        Assert.assertEquals(firstItem,"Sauce Labs Fleece Jacket");
+        String SecondItem=add.getItem2Name();
+        Assert.assertEquals(SecondItem,"Sauce Labs Onesie");
     }
-
 
     }

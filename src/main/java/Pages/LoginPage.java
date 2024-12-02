@@ -13,6 +13,11 @@ public class LoginPage extends PageBase {
 
         super(driver);
 }
+    public void loginSteps(String userName,String pass){
+        enterUserName(userName);
+        enterPassword(pass);
+        clickOnLogin();
+    }
 public void enterUserName( String UserName){
 
         driver.findElement(usernameInput).sendKeys(UserName);
