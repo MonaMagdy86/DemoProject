@@ -1,7 +1,5 @@
 package Tests;
 
-//import atu.testrecorder.ATUTestRecorder;
-//import atu.testrecorder.exceptions.ATUTestRecorderException;
 import Pages.LoginPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,13 +13,10 @@ public class TestBase {
    protected final String URL = "https://www.saucedemo.com/v1/";
     protected static WebDriver driver;
     protected LoginPage loginPage;
-  // ATUTestRecorder recorder;
     @BeforeMethod
     public void SetUp(Method method) {
         driver =new ChromeDriver();
        loginPage = new LoginPage(driver);
-       // recorder = new ATUTestRecorder("D:\\projects\\POMPractice\\VideoRecording",method.getName(), false);
-        //recorder.start();
         driver.manage().window().maximize();
         driver.get(URL);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5000));
@@ -30,7 +25,6 @@ public class TestBase {
     @AfterMethod
     public void quit(Method method) throws IOException {
         TestUtil.TakeSnapshot(method.getName());
-       // recorder.stop();
         driver.quit();
     }
 }

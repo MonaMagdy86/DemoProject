@@ -9,7 +9,6 @@ public class LogOutTest extends TestBase {
     public void LogOutTest() {
         LogOutPage logout=new LogOutPage(driver);
         loginPage.loginSteps("standard_user","secret_sauce");
-     //  logout.loginSteps("standard_user","secret_sauce");
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/inventory.html");
         logout.logOutSteps();
        String ExpectedURL="https://www.saucedemo.com/v1/index.html";

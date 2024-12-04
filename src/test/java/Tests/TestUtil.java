@@ -19,7 +19,7 @@ public class TestUtil extends TestBase {
 
     static void TakeSnapshot(String name) throws IOException {
         File SrcFile= ((TakesScreenshot) TestBase.driver).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(SrcFile, new File("D:\\projects\\POMPractice\\SnapShots\\"+name+".png"));
+        FileUtils.copyFile(SrcFile, new File("D:\\projects\\SauceDemo\\SnapShots\\"+name+".png"));
 
     }
 

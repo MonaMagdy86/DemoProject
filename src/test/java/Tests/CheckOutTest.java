@@ -20,10 +20,10 @@ public class CheckOutTest extends TestBase {
         checkOut.clickOnCart();
         checkOut.checkOutSteps("Mona","Magdy","123");
         String total=checkOut.getTotal();
-        System.out.println(total);
         Assert.assertEquals(total,"Total: $62.62");
         checkOut.clickOnFinish();
-        String txt=checkOut.getCompeteText();
-        Assert.assertEquals(txt,"THANK YOU FOR YOUR ORDER");
+        String completionText=checkOut.getCompeteText();
+        Assert.assertEquals(completionText,"THANK YOU FOR YOUR ORDER\n" +
+                "Your order has been dispatched, and will arrive just as fast as the pony can get there!");
     }
 }

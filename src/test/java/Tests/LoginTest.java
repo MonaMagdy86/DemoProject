@@ -10,13 +10,12 @@ import java.io.IOException;
 
 public class LoginTest extends TestBase {
 
-// TestCase to verify valid login with valid credential.
-
     @Test(priority = 1,description = "Verify Login ")
     @Description(" Verify Login to Website")
     @Severity(SeverityLevel.BLOCKER)
     public void ValidLogin() {
-        loginPage.loginSteps("standard_user","secret_sauce");
+        String [] data= loginPage.spliting();
+        loginPage.loginSteps(data[0],data[1]);
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/inventory.html");
 
     }

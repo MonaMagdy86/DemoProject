@@ -17,11 +17,7 @@ public class AddToCartTest extends TestBase {
         loginPage.enterPassword("secret_sauce");
         loginPage.clickOnLogin();
         AddToCartPage add=new AddToCartPage(driver);
-        add.clickOnItem1();
-        add.addToCart();
-        add.clickOnBackButton();
-        add.clickOnItem2();
-        add.addToCart();
+        add.addToCartSteps();
        String numOfItems = add.getItemsNumber();
         Assert.assertEquals(numOfItems,"2");
         add.clickOncartIcon();
